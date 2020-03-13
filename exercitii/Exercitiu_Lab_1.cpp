@@ -18,31 +18,31 @@
 //	FIFO = First In First Out - primul introdus este primul sters
 //
 //*/
-//#include<stdio.h>
-//#include<stdlib.h>
-//
-//struct Angajat {
-//	char nume[30];
-//	float salariu;
-//};
-//
-//struct nod_stiva {
-//	Angajat info;
-//	nod_stiva* next_stack;
-//};
-//
-//struct nod_coada {
-//	Angajat info;
-//	nod_coada* next_queue;
-//};
-////------------------- STIVA ------------------------------------
-//void push(nod_stiva* primul, Angajat info);
-//void pop(nod_stiva* primul, Angajat info);
-//void afisare_stiva(nod_stiva* primul);
-////------------------- COADA ------------------------------------
-//void push(nod_coada* primul, nod_coada* ultimul, Angajat info);
-//void pop(nod_coada* primul, nod_coada* ultimul, Angajat info);
-//void afisare_coada(nod_coada* primul, nod_coada* ultimul);
-//
-//void main() {
-//}
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Angajat {
+	char nume[30];
+	float salariu;
+};
+
+struct nod_stiva {
+	Angajat info;
+	nod_stiva* next_stack;
+};
+
+struct nod_coada {
+	Angajat info;
+	nod_coada* next_queue;
+};
+//------------------- STIVA ------------------------------------
+void push(nod_stiva* primul, Angajat info);
+void pop(nod_stiva* primul, Angajat info);
+void afisare_stiva(nod_stiva* primul);
+//------------------- COADA ------------------------------------
+void push(nod_coada* primul, nod_coada* ultimul, Angajat info);
+void pop(nod_coada* primul, nod_coada* ultimul, Angajat info);
+void afisare_coada(nod_coada* primul, nod_coada* ultimul);
+
+void main() {
+}
