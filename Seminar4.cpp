@@ -259,13 +259,15 @@ nod* creare_lista_circulara() {
 		cursor = cap;
 		for (int i = 1; i < nr_el; i++) {
 			nou = (nod*)malloc(sizeof(nod));
-			nou->next = NULL;
 			nou->info = citire_angajat_tastatura();
+			nou->prev = cursor;
 			cursor->next = nou;
+			//nou o sa fie ultimul element din lista.
 			cursor = nou;
 		}
 		//diferenta cursorul se afla la final
 		cursor->next = cap;
+		cap->prev = cursor;
 	}
 	return cap;
 }
@@ -288,7 +290,9 @@ nod* inserare_element_circulara(nod* cap, angajat info) {
 		nou->next = cap;
 		nou->prev = cursor;
 		nou->info = info;
+		//atasez ultimul element catre cel nou pe care-l inseram
 		cursor->next = nou;
+		//fac legatura intre cap si ultimul element
 		cap->prev = nou;
 	}
 	return cap;
@@ -310,6 +314,7 @@ nod* stergere_element_circulara(nod* cap) {
 		}
 		//refacem legaturile, prin urmare avem nevoie de o variabila pentru a retine ultimul element
 		nod* ultim = cursor->next;
+		//refac legaturile.
 		cursor->next = cap;
 		cap->prev = cursor;
 		free(ultim);
