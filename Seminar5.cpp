@@ -42,7 +42,6 @@ Angajat citire_angajat_tastatura() {
 	printf("\n+++++++++++++++++++++++++++++++++++++++\n");
 	printf("Introducere angajat:");
 	printf("\nNume: ");
-	getc(stdin);
 	gets_s(a.nume, 30);
 	printf("\nSalariu: ");
 	scanf_s("%f", &a.salariu);
@@ -121,7 +120,7 @@ void push(nod_coada* &primul, nod_coada* &ultimul, Angajat info) {
 }
 void pop(nod_coada* &primul, nod_coada* &ultimul, Angajat &info) {
 	//intr-o coada eliminarea se face prin varful cozii. Verificati specificatii
-	if (primul != NULL) {
+	if (primul) {
 		//declaram variabila intermediar in care punem elementul pe care dorim sa-l eliminam din coada
 		nod_coada* eliminat = primul;
 		//extragere info din pointerul pe care-l eliminam
@@ -137,7 +136,7 @@ void pop(nod_coada* &primul, nod_coada* &ultimul, Angajat &info) {
 		free(eliminat);
 	}
 }
-void afisare_coada(nod_coada* primul, nod_coada* ultimul) {
+void afisare_coada(nod_coada* primul) {
 	//declaram pointer intermediar pentru a parcurge coada
 	nod_coada* cursor = primul;
 	while (cursor) {
@@ -157,6 +156,7 @@ nod_stiva* intializare_stiva() {
 		push(primul, a);
 		printf("\nDoriti sa continuati? Da-1/Nu-0 ");
 		scanf_s("%d", &ok);
+		getc(stdin);
 	}
 	return primul;
 }
@@ -171,22 +171,31 @@ void initializare_coada(nod_coada* *primul, nod_coada* *ultimul) {
 		push(*primul,*ultimul, a);
 		printf("\nDoriti sa continuati? Da-1/Nu-0 ");
 		scanf_s("%d", &ok);
+		getc(stdin);
 	}
 }
 void main() {
+	printf("\n +++++++++++++++++ STIVA +++++++++++++++++++++++++");
    	nod_stiva* primul = intializare_stiva();
 	afisare_stiva(primul);
 	Angajat a;
+	printf("\nScoatere element stiva\n");
 	pop(primul,a);
+	printf("\n++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 	afisare_stiva(primul);
+	printf("\n++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 	printf("\n Afisare angajat scos din stiva: ");
 	afisare_angajat_tastatura(a);
+	printf("\n++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+	printf("\n +++++++++++++++++ COADA +++++++++++++++++++++++++");
 	nod_coada* primul_c = NULL;
 	nod_coada* ultimul_c = NULL;
 	initializare_coada(&primul_c, &ultimul_c);
-	afisare_coada(primul_c, ultimul_c);
+	afisare_coada(primul_c);
+	printf("\n++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 	pop(primul_c,ultimul_c, a);
-	afisare_coada(primul_c, ultimul_c);
+	afisare_coada(primul_c);
+	printf("\n++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 	printf("\n Afisare angajat scos din coada: ");
 	afisare_angajat_tastatura(a);
 }
