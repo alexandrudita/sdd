@@ -1,0 +1,105 @@
+                               ARBORE DIN FISIER: 
+									
+						       _________1__________
+					     ____10____            ____3____
+  		              __6__      __10        11         2
+				     1	   8    1                   
+					 
+					 
+					        ARBORE DIN HEAP: 
+						   
+						   _________11__________
+					 ____10____            ____3____
+  		          __8__      __10        1          2
+		         1	   6    1
+				 
+				 
+Algoritm initializare_heap: 
+elemente={1,10,3,6,10,11,2,1,8,1}
+numar_elemente = 10
+for.. i = (numar_elemente-1)/2 = (10-1)/2 = 4; i>=0; i--
+P1 i = 4 elemente={1,10,3,6,10,11,2,1,8,1}
+   filtrare(heap, 4)
+      fiuS = 2*4+1=9
+	  fiuD = 2*4+2=10
+	  max = 4
+	  if fiuS(9)<10->true => element[4](10)<element[9](1)-> false
+	  if fiuD(10)<10->false
+	  if max(4)!=pozitie(4) -> false
+   STOP P1
+P2 i = 3 elemente={1,10,3,6,10,11,2,1,8,1}
+   filtrare(heap, 3)
+      fiuS = 2*3+1=7
+	  fiuD = 2*3+2=8
+	  max = 3
+	  if fiuS(7)<10->true => element[3](6)<element[7](1)-> false
+	  if fiuD(8)<10->true => element[3](6)<element[8](8)-> true => max = fiuD =>max=8
+	  if max(8)!=pozitie(3) -> true => interschimbare 8<->3 => elemente{1,10,3,8,10,11,2,1,6,1}
+	    P2.1
+		 filtrare(heap, max(8))
+		   fiuS = 2*8+1=17
+		   fiuD = 2*8+2=18
+	       max = 8
+	       if fiuS(17)<10-> false
+	       if fiuD(18)<10->false
+	       if max(8)!=pozitie(8) -> false
+         STOP P2.1
+     STOP P2
+P3 i = 2 elemente{1,10,3,8,10,11,2,1,6,1}
+   filtrare(heap, 2)
+      fiuS = 2*2+1=5
+	  fiuD = 2*2+2=6
+	  max = 2
+	  if fiuS(5)<10->true => element[2](3)<element[5](11)-> true => max=fiuS => max=5
+	  if fiuD(6)<10->true => element[5](11)<element[6](2)-> false
+	  if max(5)!=pozitie(2) -> true => interschimbare 5<->2 => elemente{1,10,11,8,10,3,2,1,6,1}
+	    P3.1
+		 filtrare(heap, max(5))
+		   fiuS = 2*5+1=11
+		   fiuD = 2*5+2=12
+	       max = 5
+	       if fiuS(11)<10-> false
+	       if fiuD(11)<10->false
+	       if max(5)!=pozitie(5) -> false
+         STOP P3.1
+     STOP P3
+	 
+P4 i = 1 elemente{1,10,11,8,10,3,2,1,6,1}
+   filtrare(heap, 1)
+      fiuS = 2*1+1=3
+	  fiuD = 2*1+2=4
+	  max = 1
+	  if fiuS(3)<10->true => element[1](10)<element[3](8)-> false
+	  if fiuD(4)<10->true => element[1](10)<element[4](10)-> false
+	  if max(1)!=pozitie(1) -> false
+   STOP P4
+   
+P5 i = 0 elemente{1,10,11,8,10,3,2,1,6,1}
+   filtrare(heap, 0)
+      fiuS = 2*0+1=1
+	  fiuD = 2*0+2=2
+	  max = 0
+	  if fiuS(1)<10->true => element[0](1)<element[1](10)-> true =>max=fiuS =>max=1
+	  if fiuD(2)<10->true => element[1](10)<element[2](11)-> true =>max=fiuD =>max=2
+	  if max(2)!=pozitie(0) -> true interschimbare 2<->0 => elemente{11,10,1,8,10,3,2,1,6,1}
+	    P5.1
+		 filtrare(heap, 2)
+		   fiuS = 2*2+1=5
+	       fiuD = 2*2+2=6
+	       max = 2
+	       if fiuS(5)<10->true => element[2](1)<element[5](3)-> true => max=fiuS => max=5
+	       if fiuD(6)<10->true => element[5](3)<element[6](2)-> false
+	       if max(5)!=pozitie(2) -> true => interschimbare <-> 5,2 =>
+		   elemente{11,10,3,8,10,1,2,1,6,1}
+		   P5.2
+		     filtrare(heap, 5)
+		     fiuS = 2*5+1=11
+	         fiuD = 2*5+2=12
+	         max = 5
+	         if fiuS(11)<10->false
+	         if fiuD(12)<10->false
+	         if max(5)!=pozitie(5) ->false
+		   STOP P5.2
+		STOP P5.1
+	STOP P5
+STOP PROGRAM REZULTAT: elemente{11,10,3,8,10,1,2,1,6,1}
