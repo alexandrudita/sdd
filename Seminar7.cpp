@@ -1,5 +1,9 @@
 /*
  Suport teoretic HEAP: http://acs.ase.ro/Media/Default/documents/structuri/2019/Struct-heap.pdf
+
+ Pentru acest seminar de vazut urmatoarele fisiere: 
+ - sursa de date pentru vectorul de apeluri https://github.com/alexandrudita/sdd/blob/master/util/apeluri_urgenta.txt
+ - pseudocodul pentru initializarea unui heap plecand de la vectorul de mai sus https://github.com/alexandrudita/sdd/blob/master/util/ex_initializare_heap_seminar7.txt
 */
 
 #define _CRT_SECURE_NO_WARNINGS 
