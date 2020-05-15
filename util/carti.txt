@@ -1,0 +1,22 @@
+7
+0
+Structuri de date
+13.20
+1
+Programarea dispozitivelor mobile
+19.40
+2
+Java - informatii de baza
+18.00
+3
+C# .Net
+11.70
+4
+Algoritmi in programare
+16.40
+5
+Sql Oracle
+21.10
+6
+Kotlin - informatii de baza
+46.60
